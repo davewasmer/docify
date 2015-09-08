@@ -5,7 +5,7 @@ var Liftoff = require('liftoff');
 
 var Docify = new Liftoff({
   name: 'docify',
-  moduleName: 'docify/cli'
+  moduleName: 'docify/lib/cli'
 });
 
 Docify.launch({
