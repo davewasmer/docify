@@ -1,0 +1,56 @@
+{
+  "name": "baker",
+  "version": "0.0.1",
+  "description": "Fully bake your npm module with a drop in, customizable project page, API documentation, and Github Pages support",
+  "homepage": "https://github.com/davewasmer/baker",
+  "repository": "davewasmer/baker",
+  "author": {
+    "name": "Dave Wasmer",
+    "email": "davewasmer@gmail.com",
+    "url": "davewasmer.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "keywords": [],
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.5.0",
+    "gulp": "^3.6.0",
+    "gulp-babel": "^5.1.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^0.4.5",
+    "gulp-plumber": "^1.0.0",
+    "must": "^0.12.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "broccoli": "^0.16.8",
+    "broccoli-autoprefixer": "^3.0.0",
+    "broccoli-funnel": "^0.2.8",
+    "broccoli-merge-trees": "^0.2.3",
+    "broccoli-sass": "^0.6.6",
+    "broccoli-stew": "^0.3.5",
+    "commander": "^2.8.1",
+    "copy-dereference": "^1.0.0",
+    "dox": "^0.8.0",
+    "fm": "^0.4.0",
+    "front-matter": "^1.0.0",
+    "glob": "^5.0.14",
+    "handlebars": "^4.0.0",
+    "liftoff": "^2.1.0",
+    "lodash-node": "^3.10.1",
+    "marked": "^0.3.5",
+    "rimraf": "^2.4.3",
+    "tiny-lr": "^0.1.6"
+  }
+}

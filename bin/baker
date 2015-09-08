@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+require('babel/register');
+var Liftoff = require('liftoff');
+
+var Baker = new Liftoff({
+  name: 'baker',
+  moduleName: 'baker/lib/cli'
+});
+
+Baker.launch({
+  cwd: process.cwd()
+}, function(env) {
+  if (!env.modulePath) {
+    var pkg = require('../package');
+    console.log('baker v' + pkg.version + ' [global]');
+    require('../lib/cli');
+  } else {
+    console.log('baker v' + env.modulePackage.version);
+    require(env.modulePath);
+  }
+});

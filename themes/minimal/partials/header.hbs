@@ -1,0 +1,31 @@
+<header>
+  <h1 class='project-name'>{{project.name}}</h1>
+  <p class='project-description'>{{project.description}}</p>
+
+  <nav>
+    <!-- Project Repo Link -->
+    {{#if project.repository}}
+      <a href='https://github.com/{{project.repository}}' class='nav-link repo-link'>View on Github</a>
+    {{/if}}
+
+    <!-- Pages -->
+    {{#if pages}}
+      {{#each pages}}
+        <!-- Page -->
+        <a href='{{url}}' class='nav-link page-link'>{{title}}</a>
+      {{/each}}
+    {{/if}}
+
+    <!-- API -->
+    {{#if apis}}
+      <h3>API Reference</h3>
+      {{#each apis}}
+        <!-- Module -->
+        <a href='/api/{{url}}' class='nav-link api-link'>
+          <span class='nav-api-module-name'>{{name}}</span>
+          <span class='nav-api-module-file'>({{url}})</span>
+        </a>
+      {{/each}}
+    {{/if}}
+  </nav>
+</header>
