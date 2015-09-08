@@ -1,4 +1,4 @@
-# baker [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# docify [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
 Fully bake your npm module with a drop in, customizable project page, API documentation, and Github Pages support
 
@@ -6,13 +6,13 @@ Fully bake your npm module with a drop in, customizable project page, API docume
 ## Install
 
 ```sh
-$ npm install --save baker
+$ npm install --save docify
 ```
 
 
 ## Usage
 
-Baker provides two things: basic static site generator, and integrated API docs. If you want to use the built-in theme, it's as easy as adding a `docs/` folder to your project:
+Docify provides two things: basic static site generator, and integrated API docs. If you want to use the built-in theme, it's as easy as adding a `docs/` folder to your project:
 
 ```
 docs/
@@ -25,11 +25,11 @@ docs/
 MIT © [Dave Wasmer](http://davewasmer.com)
 
 
-[npm-image]: https://badge.fury.io/js/baker.svg
-[npm-url]: https://npmjs.org/package/baker
-[travis-image]: https://travis-ci.org/davewasmer/baker.svg?branch=master
-[travis-url]: https://travis-ci.org/davewasmer/baker
-[daviddm-image]: https://david-dm.org/davewasmer/baker.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/davewasmer/baker
-[coveralls-image]: https://coveralls.io/repos/davewasmer/baker/badge.svg
-[coveralls-url]: https://coveralls.io/r/davewasmer/baker
+[npm-image]: https://badge.fury.io/js/docify.svg
+[npm-url]: https://npmjs.org/package/docify
+[travis-image]: https://travis-ci.org/davewasmer/docify.svg?branch=master
+[travis-url]: https://travis-ci.org/davewasmer/docify
+[daviddm-image]: https://david-dm.org/davewasmer/docify.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/davewasmer/docify
+[coveralls-image]: https://coveralls.io/repos/davewasmer/docify/badge.svg
+[coveralls-url]: https://coveralls.io/r/davewasmer/docify

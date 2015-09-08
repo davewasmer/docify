@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import build from '../lib/build';
 
-describe('baker', function() {
+describe('docify', function() {
   describe('build', function() {
     before(function() {
       this.output = build();

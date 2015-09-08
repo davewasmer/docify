@@ -1,31 +1,38 @@
 <header>
-  <h1 class='project-name'>{{project.name}}</h1>
+  <h1 class='project-name'>
+    <a href='/'>{{project.name}}</a>
+  </h1>
   <p class='project-description'>{{project.description}}</p>
 
   <nav>
     <!-- Project Repo Link -->
     {{#if project.repository}}
-      <a href='https://github.com/{{project.repository}}' class='nav-link repo-link'>View on Github</a>
+      <a href='https://github.com/{{project.repository}}' class='nav-link repo-link'>View on Github ({{project.repository}})</a>
     {{/if}}
 
     <!-- Pages -->
     {{#if pages}}
-      {{#each pages}}
-        <!-- Page -->
-        <a href='{{url}}' class='nav-link page-link'>{{title}}</a>
-      {{/each}}
+      <div class='page-nav'>
+        <h4 class='nav-header'>Documentation</h4>
+        {{#each pages}}
+          <!-- Page -->
+          <a href='{{url}}' class='nav-link page-link'>{{title}}</a>
+        {{/each}}
+      </div>
     {{/if}}
 
     <!-- API -->
     {{#if apis}}
-      <h3>API Reference</h3>
-      {{#each apis}}
-        <!-- Module -->
-        <a href='/api/{{url}}' class='nav-link api-link'>
-          <span class='nav-api-module-name'>{{name}}</span>
-          <span class='nav-api-module-file'>({{url}})</span>
-        </a>
-      {{/each}}
+      <div class='api-nav'>
+        <h4 class='nav-header'>API Reference</h4>
+        {{#each apis}}
+          <!-- Module -->
+          <a href='/api/{{url}}' class='nav-link api-link'>
+            <span class='api-nav-module-name'>{{name}}</span>
+            (<span class='api-nav-module-file'>{{path}}</span>)
+          </a>
+        {{/each}}
+      </div>
     {{/if}}
   </nav>
 </header>

@@ -1,0 +1,90 @@
+@import 'normalize';
+@import 'code';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #444;
+  font-family: 'Open Sans';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.3em;
+  margin-bottom: 0.8em;
+  font-family: 'Raleway';
+  font-weight: 800;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20rem;
+  padding: 2rem;
+
+  .project-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .project-description {
+    font-size: 0.8rem;
+  }
+
+  .repo-link {
+    display: block;
+    margin-bottom: 3rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-header {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: #777;
+    font-size: 0.8rem;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .api-nav-module-file {
+    font-family: 'Inconsolata', 'Monaco', 'Anonymous', monospace;
+  }
+}
+
+.container {
+  margin-left: 20rem;
+  padding: 2rem;
+  max-width: 40rem;
+}
+
+pre {
+  padding: 0.8rem;
+  border-radius: 2px;
+  background-color: #333;
+}
+
+code {
+  background-color: #f7f7f7;
+  color: #666;
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 0.1em 0.2em;
+  border: 1px solid #efefef;
+}
+
+pre > code {
+  background: transparent;
+  border: none;
+  font-size: 0.9em;
+  color: #ddd;
+  color: #ddd;
+}

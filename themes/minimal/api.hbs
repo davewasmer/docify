@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{title}}</title>
-        <meta name="description" content="">
+        <title>{{#if api.name}}{{api.name}} | {{/if}}{{project.name}}</title>
+        <meta name="description" content="{{project.description}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -21,11 +21,33 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        {{>header}}
         <div class='container'>
-          {{>header}}
           {{#each api}}
             <h1>{{ctx.name}}</h1>
-            <p>{{description.full}}</p>
+            <p>{{{description.full}}}</p>
+            {{#if tags.param}}
+              <h6>Arguments</h6>
+              <ul class='arguments'>
+                {{#each tags.param}}
+                  <li class='argument'>
+                    <span class='argument-name'>{{name}}</span>
+                    <span class='argument-types'>({{types}}): </span>
+                    <span class='argument-description'>{{description}}</span>
+                  </li>
+                {{/each}}
+            {{/if}}
+            {{#if tags.return}}
+              <h6>Returns</h6>
+              <p class='returns'>
+                <span class='return-types'>({{tags.return.types}})</span>
+                {{tags.return.description}}
+              </p>
+            {{/if}}
+            {{#if tags.example}}
+              <h6>Example</h6>
+              {{{html}}}
+            {{/if}}
           {{/each}}
         </div>
 
