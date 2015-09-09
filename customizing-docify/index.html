@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Customizing Docify | docify</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/styles.css">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+          <h1 class='project-name'>
+            <a href='/'>docify</a>
+          </h1>
+          <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
+        
+          <nav>
+        
+            <!-- Project Repo Link -->
+              <a href='https://github.com/davewasmer/docify' class='nav-link repo-link'>View on Github (davewasmer/docify)</a>
+        
+            <!-- Pages -->
+              <div class='page-nav'>
+                <h4 class='nav-header'>Documentation</h4>
+                  <!-- Page -->
+                  <a href='/getting-started' class='nav-link page-link'>Getting Started with Docify</a>
+                  <!-- Page -->
+                  <a href='/customizing-docify' class='nav-link page-link'>Customizing Docify</a>
+                  <!-- Page -->
+                  <a href='' class='nav-link page-link'></a>
+              </div>
+        
+            <!-- API -->
+              <div class='api-nav'>
+                <h4 class='nav-header'>API Reference</h4>
+                  <!-- Module -->
+                  <a href='/api/lib/build.js' class='nav-link api-link'>
+                    <span class='api-nav-module-name'>docify</span>
+                    <span class='api-nav-module-file'>lib/build.js</span>
+                  </a>
+                  <!-- Module -->
+                  <a href='/api/lib/cli/build.js' class='nav-link api-link'>
+                    <span class='api-nav-module-name'>$ docify build</span>
+                    <span class='api-nav-module-file'>lib/cli/build.js</span>
+                  </a>
+                  <!-- Module -->
+                  <a href='/api/lib/cli/publish.js' class='nav-link api-link'>
+                    <span class='api-nav-module-name'>$ docify publish</span>
+                    <span class='api-nav-module-file'>lib/cli/publish.js</span>
+                  </a>
+                  <!-- Module -->
+                  <a href='/api/lib/cli/server.js' class='nav-link api-link'>
+                    <span class='api-nav-module-name'>$ docify server</span>
+                    <span class='api-nav-module-file'>lib/cli/server.js</span>
+                  </a>
+              </div>
+          </nav>
+        </header>
+        <div class='container'>
+          <h1 id="customizing-docify">Customizing Docify</h1>
+<p>For small projects, the default <code>minimal</code> theme is a great fit. However, for larger projects, or ones that require more branding, you can customize the theme that Docify uses to generate the documentation.</p>
+<p>Docify themes are pretty simple. They only require three files:</p>
+<ul>
+<li><code>api.hbs</code> - used to render API documentation</li>
+<li><code>page.hbs</code> - used to render documentation Pages</li>
+<li><code>styles.scss</code> - your custom Sass stylesheet.</li>
+</ul>
+<p>You can also optionally include partials in a <code>partials/</code> directory inside your theme folder, and they will automatically be registered and made availabe in your templates.</p>
+<p>If you aren&#39;t familiar with Sass, don&#39;t worry - it&#39;s a strict superset of CSS, meaning you can write regular CSS in your <code>.scss</code> files and it should work just fine.</p>
+<h2 id="template-data">Template Data</h2>
+<p>The two templates used by Docify (<code>api.hbs</code> and <code>page.hbs</code>) each receive data that can be used inside the template.</p>
+<h3 id="-page-hbs-"><code>page.hbs</code></h3>
+<p>For the <code>page.hbs</code> template, this data is mostly useful for rendering things like global navigation, project links, etc; most of the content will come directly from the page source.</p>
+<p>Inside your page template, you access the following variables:</p>
+<pre><code class="lang-js">{
+  project: { <span class="hljs-comment">/* this is your package.json */</span> },
+  page: { <span class="hljs-comment">/* the YAML frontmatter for the currently rendering page */</span> },
+  pages: [
+    <span class="hljs-comment">// An array of all the pages in your project</span>
+  ],
+  apis: [
+    <span class="hljs-comment">// An array of the metadata and documentation extracted from each source file</span>
+  ]
+}
+</code></pre>
+<h3 id="-api-hbs-"><code>api.hbs</code></h3>
+<p>Unlike the page template, the API documentation template is almost entirely data driven. You&#39;ll have access to all the same global metadata that the page template has (i.e. <code>project</code>, <code>pages</code>, <code>apis</code>), but you&#39;ll also have access to the metadata for the currently rendering API documentation file via <code>api</code>.</p>
+<p>Docify uses <a href="https://github.com/tj/dox">Dox</a> to parse JSDoc style comment blocks in your source code. Each source file will produce an array of documentation data extract from each comment block. Docify combines these into an array of file metadata:</p>
+<pre><code class="lang-js">apis: [  <span class="hljs-comment">// apis is the array of all extracted documentation in your project</span>
+  [
+    <span class="hljs-comment">// Each entry is an array of extracted docs from each comment in a particular file</span>
+  ]
+]
+</code></pre>
+<p>See the documentation for <a href="https://github.com/tj/dox">Dox</a> to get a sense of what is available, or take a look at the source for the built-in <a href="https://github.com/davewasmer/docify/blob/master/themes/minimal/api.hbs">minimal theme</a>.</p>
+
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
