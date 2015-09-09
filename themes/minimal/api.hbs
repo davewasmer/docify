@@ -23,39 +23,45 @@
 
         {{>header}}
         <div class='container'>
-          <h1 class='file-name'>{{api.name}} <span class='file-path'>({{api.filepath}})</span></h1>
+          <h1 class='file-name'>
+            {{api.name}}
+            <small class='file-path'>
+              Defined in
+              <a href='https://github.com/{{project.repository}}/blob/master/{{api.path}}'>{{api.path}}</a>
+            </small>
+          </h1>
 
-          {{#each api}}
+          {{#each api.blocks as |block|}}
 
-            {{#if ctx}}
+            {{#if block.ctx}}
               <div class='context'>
                 <div class='defined-in'>
-                  Defined in <a href='https://github.com/{{../project.repository}}/blob/master/{{../api.filepath}}#L{{line}}'>{{../api.filepath}}, Line {{line}}</a>
+                  Defined in <a href='https://github.com/{{../project.repository}}/blob/master/{{../api.path}}#L{{line}}'>{{../api.path}}, Line {{block.line}}</a>
                 </div>
                 <h3 class='method-name'>
-                  {{ctx.name}}
+                  {{block.ctx.name}}
                   <span class='arguments'>
-                    ({{#each tags.param}}{{#unless isNested}}<span class='argument'>{{name}}</span>{{/unless}}{{/each}})
+                    ({{#each block.tags.param as |argument|}}{{#unless argument.isNested}}<span class='argument'>{{argument.name}}</span>{{/unless}}{{/each}})
                   </span>
                 </h3>
               </div>
             {{/if}}
 
-            <p class='method-description'>{{{description.full}}}</p>
+            <p class='method-description'>{{{block.description.full}}}</p>
 
-            {{#if tags.example}}
+            {{#if block.tags.example}}
               <h4>Example</h4>
-              {{{tags.example.string}}}
+              {{{block.tags.example.string}}}
             {{/if}}
 
-            {{#if tags.param}}
+            {{#if block.tags.param}}
               <h4>Arguments</h4>
               <ul class='arguments'>
-                {{#each tags.param}}
+                {{#each block.tags.param as |argument|}}
                   <li class='argument'>
-                    <span class='argument-name'>{{name}}</span>
-                    <span class='argument-types'>({{types}}): </span>
-                    <span class='argument-description'>{{{description}}}</span>
+                    <span class='argument-name'>{{argument.name}}</span>
+                    <span class='argument-types'>({{argument.types}}): </span>
+                    <span class='argument-description'>{{{argument.description}}}</span>
                   </li>
                 {{/each}}
               </ul>
@@ -63,8 +69,8 @@
             {{#if tags.return}}
               <h4>Returns</h4>
               <div class='return'>
-                <span class='return-types'>({{tags.return.types}})</span>
-                <span class='return-description'>{{{tags.return.description}}}</span>
+                <span class='return-types'>({{block.tags.return.types}})</span>
+                <span class='return-description'>{{{block.tags.return.description}}}</span>
               </div>
             {{/if}}
           {{/each}}

@@ -2,6 +2,7 @@
 @import 'code';
 
 $monospace: 'Inconsolata', 'Monaco', 'Anonymous', monospace;
+$sans: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
 
 * {
   box-sizing: border-box;
@@ -9,7 +10,7 @@ $monospace: 'Inconsolata', 'Monaco', 'Anonymous', monospace;
 
 body {
   color: #444;
-  font-family: 'Open Sans';
+  font-family: $sans;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -67,8 +68,8 @@ header {
 
 .container {
   max-width: 40rem;
-  margin-left: 22rem;
   margin-bottom: 5rem;
+  margin-left: 22rem;
   padding: 2rem;
 }
 
@@ -76,33 +77,48 @@ pre {
   padding: 0.8rem;
   border-radius: 2px;
   background-color: #333;
+
+  > code {
+    border: none;
+    background: transparent;
+    color: #ddd;
+    font-size: 0.9em;
+  }
 }
 
 code {
+  display: inline-block;
+  border: 1px solid #efefef;
   background-color: #f7f7f7;
   color: #666;
   font-size: 0.9em;
-  display: inline-block;
-  border: 1px solid #efefef;
 }
 
-pre > code {
-  background: transparent;
-  border: none;
-  font-size: 0.9em;
-  color: #ddd;
-  color: #ddd;
+blockquote {
+  margin: 2em 1em;
+  padding: 0.1em 1.2em;
+  border-radius: 2px;
+  background-color: #ededff;
 }
 
 .file-path {
-  font-family: $monospace;
-  font-size: 0.7em;
+  display: block;
+  margin: 0.3em 0;
+  color: #888;
+  font-family: 'Open Sans';
+  font-size: 0.9rem;
+  font-weight: normal;
+
+  a {
+    color: inherit;
+    font-family: $monospace;
+  }
 }
 
 .context {
   margin: 2rem -0.75em 0;
   padding: 0.5em 0.75em;
-  background-color: #F4F4F9;
+  background-color: #f4f4f9;
 }
 
 .method-name {
@@ -111,14 +127,16 @@ pre > code {
 
   .arguments {
     color: #777;
-    font-size: 0.8em;
     font-family: $monospace;
+    font-size: 0.8em;
     font-weight: 600;
   }
+
   .argument {
     &::after {
       content: ', ';
     }
+
     &:last-child::after {
       display: none;
     }
@@ -138,14 +156,17 @@ pre > code {
 
 .argument {
   font-size: 0.9em;
+
   .argument-name {
     font-family: $monospace;
     font-weight: bold;
   }
+
   .argument-types {
     color: #888;
     font-family: $monospace;
   }
+
   .argument-description p {
     display: inline;
     margin: 0;

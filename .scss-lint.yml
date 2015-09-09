@@ -4,6 +4,9 @@ scss_files: "themes/**/*.scss"
 
 linters:
 
+  ColorVariable:
+    enabled: false
+
   BorderZero:
     enabled: true
     convention: none

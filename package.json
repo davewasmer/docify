@@ -36,6 +36,7 @@
   "dependencies": {
     "broccoli": "^0.16.8",
     "broccoli-autoprefixer": "^3.0.0",
+    "broccoli-caching-writer": "^1.1.0",
     "broccoli-funnel": "^0.2.8",
     "broccoli-merge-trees": "^0.2.3",
     "broccoli-sass": "^0.6.6",
@@ -51,7 +52,9 @@
     "liftoff": "^2.1.0",
     "lodash-node": "^3.10.1",
     "marked": "^0.3.5",
+    "mkdirp": "^0.5.1",
     "rimraf": "^2.4.3",
-    "tiny-lr": "^0.1.6"
+    "tiny-lr": "^0.1.6",
+    "walk-sync": "^0.2.0"
   }
 }
