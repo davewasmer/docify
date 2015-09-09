@@ -1,6 +1,8 @@
 @import 'normalize';
 @import 'code';
 
+$monospace: 'Inconsolata', 'Monaco', 'Anonymous', monospace;
+
 * {
   box-sizing: border-box;
 }
@@ -22,8 +24,8 @@ header {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 20rem;
-  padding: 2rem;
+  width: 22rem;
+  padding: 3rem;
 
   .project-name a {
     color: inherit;
@@ -50,20 +52,24 @@ header {
   }
 
   .nav-link {
+    display: block;
+    margin: 0.5em 0;
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
   }
 
   .api-nav-module-file {
-    font-family: 'Inconsolata', 'Monaco', 'Anonymous', monospace;
+    font-family: $monospace;
+    opacity: 0.5;
   }
 }
 
 .container {
-  margin-left: 20rem;
-  padding: 2rem;
   max-width: 40rem;
+  margin-left: 22rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
 }
 
 pre {
@@ -77,7 +83,6 @@ code {
   color: #666;
   font-size: 0.9em;
   display: inline-block;
-  padding: 0.1em 0.2em;
   border: 1px solid #efefef;
 }
 
@@ -87,4 +92,72 @@ pre > code {
   font-size: 0.9em;
   color: #ddd;
   color: #ddd;
+}
+
+.file-path {
+  font-family: $monospace;
+  font-size: 0.7em;
+}
+
+.context {
+  margin: 2rem -0.75em 0;
+  padding: 0.5em 0.75em;
+  background-color: #F4F4F9;
+}
+
+.method-name {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  .arguments {
+    color: #777;
+    font-size: 0.8em;
+    font-family: $monospace;
+    font-weight: 600;
+  }
+  .argument {
+    &::after {
+      content: ', ';
+    }
+    &:last-child::after {
+      display: none;
+    }
+  }
+}
+
+.defined-in {
+  margin-top: 0.2em;
+  float: right;
+  color: #888;
+  font-size: 0.75em;
+
+  a {
+    color: inherit;
+  }
+}
+
+.argument {
+  font-size: 0.9em;
+  .argument-name {
+    font-family: $monospace;
+    font-weight: bold;
+  }
+  .argument-types {
+    color: #888;
+    font-family: $monospace;
+  }
+  .argument-description p {
+    display: inline;
+    margin: 0;
+  }
+}
+
+.return-types {
+  color: #888;
+  font-family: $monospace;
+}
+
+.return-description p {
+  display: inline;
+  margin: 0;
 }

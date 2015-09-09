@@ -1,6 +1,6 @@
 # docify [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
-Fully bake your npm module with a drop in, customizable project page, API documentation, and Github Pages support
+Drop-in customizable project page, API documentation, and Github Pages support for your npm module.
 
 
 ## Install

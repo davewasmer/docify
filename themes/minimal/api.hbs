@@ -23,30 +23,49 @@
 
         {{>header}}
         <div class='container'>
+          <h1 class='file-name'>{{api.name}} <span class='file-path'>({{api.filepath}})</span></h1>
+
           {{#each api}}
-            <h1>{{ctx.name}}</h1>
-            <p>{{{description.full}}}</p>
+
+            {{#if ctx}}
+              <div class='context'>
+                <div class='defined-in'>
+                  Defined in <a href='https://github.com/{{../project.repository}}/blob/master/{{../api.filepath}}#L{{line}}'>{{../api.filepath}}, Line {{line}}</a>
+                </div>
+                <h3 class='method-name'>
+                  {{ctx.name}}
+                  <span class='arguments'>
+                    ({{#each tags.param}}{{#unless isNested}}<span class='argument'>{{name}}</span>{{/unless}}{{/each}})
+                  </span>
+                </h3>
+              </div>
+            {{/if}}
+
+            <p class='method-description'>{{{description.full}}}</p>
+
+            {{#if tags.example}}
+              <h4>Example</h4>
+              {{{tags.example.string}}}
+            {{/if}}
+
             {{#if tags.param}}
-              <h6>Arguments</h6>
+              <h4>Arguments</h4>
               <ul class='arguments'>
                 {{#each tags.param}}
                   <li class='argument'>
                     <span class='argument-name'>{{name}}</span>
                     <span class='argument-types'>({{types}}): </span>
-                    <span class='argument-description'>{{description}}</span>
+                    <span class='argument-description'>{{{description}}}</span>
                   </li>
                 {{/each}}
+              </ul>
             {{/if}}
             {{#if tags.return}}
-              <h6>Returns</h6>
-              <p class='returns'>
+              <h4>Returns</h4>
+              <div class='return'>
                 <span class='return-types'>({{tags.return.types}})</span>
-                {{tags.return.description}}
-              </p>
-            {{/if}}
-            {{#if tags.example}}
-              <h6>Example</h6>
-              {{{html}}}
+                <span class='return-description'>{{{tags.return.description}}}</span>
+              </div>
             {{/if}}
           {{/each}}
         </div>

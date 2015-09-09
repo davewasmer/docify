@@ -14,7 +14,7 @@ Docify.launch({
   if (!env.modulePath) {
     var pkg = require('../package');
     console.log('docify v' + pkg.version + ' [global]');
-    require('../cli');
+    require('../lib/cli');
   } else {
     console.log('docify v' + env.modulePackage.version);
     require(env.modulePath);
