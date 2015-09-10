@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>docify</title>
+        <title>$ docify publish | docify</title>
           <base href="/docify">
-        <meta name="description" content="">
+        <meta name="description" content="Drop-in customizable project page, API documentation, and Github Pages support for your npm module.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -71,12 +71,38 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
+          <h1 class='file-name'>
+            $ docify publish
+            <small class='file-path'>
+              Defined in
+              <a href='https://github.com/davewasmer/docify/blob/master/lib/cli/publish.js'>lib/cli/publish.js</a>
+            </small>
+          </h1>
 
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
+
+
+            <p class='method-description'><p>Builds the docs using the <code>build</code> command, and then commits them to your
+<code>gh-pages</code> branch:</p><pre><code class="lang-txt">my-project$ docify publish
+my-project$ git checkout gh-pages
+my-project$ git status
+# On branch master
+# Your branch is ahead of &#39;origin/gh-pages&#39; by 1 commit.
+#
+nothing to commit (working directory clean)
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> the publish command won&#39;t actually push your gh-pages branch.
+You&#39;ll still need to do that manually.</p></blockquote>
+<h2>Setting up</h2>
+<p>The <code>publish</code> commands assumes a few things about your project are aleady
+setup:</p><ol>
+<li>You have your gh-pages branch already setup. For instructions, check out
+<a href="https://help.github.com/articles/creating-project-pages-manually/">Github&#39;s guide</a>.</li>
+<li>You have your docs output folder (<code>docs-dist/</code> by default) added to your
+<code>.gitignore</code> file.</li>
+</ol>
+</p>
+
 
         </div>
 

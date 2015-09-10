@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>docify</title>
+        <title>docify | docify</title>
           <base href="/docify">
-        <meta name="description" content="">
+        <meta name="description" content="Drop-in customizable project page, API documentation, and Github Pages support for your npm module.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -71,13 +71,85 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
+          <h1 class='file-name'>
+            docify
+            <small class='file-path'>
+              Defined in
+              <a href='https://github.com/davewasmer/docify/blob/master/lib/build.js'>lib/build.js</a>
+            </small>
+          </h1>
 
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
 
+
+            <p class='method-description'><p>This module is the main entry point for docify when used programmatically. It
+exposes a function which will build the docs for a project, and returns a
+Promise that resolves to the output directory.</p><p>Docify uses <a href="https://github.com/broccolijs/broccoli">Broccoli.js</a> as a build
+tool to compile the docs. This function runs Broccoli with the options you
+supply.</p></p>
+
+
+
+              <div class='context'>
+                <div class='defined-in'>
+                  Defined in <a href='https://github.com/davewasmer/docify/blob/master/lib/build.js#L20'>lib/build.js, Line 20</a>
+                </div>
+                <h3 class='method-name'>
+                  build
+                  <span class='arguments'>
+                    (<span class='argument'>options</span>)
+                  </span>
+                </h3>
+              </div>
+
+            <p class='method-description'><p>Create a Broccoli.js Builder and build the project&#39;s documentation. Returns
+a promise which resolves to the output directory that contains the built
+docs.</p></p>
+
+              <h4>Example</h4>
+              <pre><code class="lang-js"><span class="hljs-keyword">import</span> docify <span class="hljs-keyword">from</span> <span class="hljs-string">'docify'</span>;
+
+docify({
+  src: <span class="hljs-string">'docs'</span>,
+  dest: <span class="hljs-string">'docs-dist'</span>
+}).then((outputDir) =&gt; {
+  <span class="hljs-comment">// outputDir = 'docs-dist'</span>
+});
+</code></pre>
+
+
+              <h4>Arguments</h4>
+              <ul class='arguments'>
+                  <li class='argument'>
+                    <span class='argument-name'>options</span>
+                    <span class='argument-types'>(Object): </span>
+                    <span class='argument-description'></span>
+                  </li>
+                  <li class='argument'>
+                    <span class='argument-name'>options.src</span>
+                    <span class='argument-types'>(String): </span>
+                    <span class='argument-description'><p>the docs folder to build, defaults to <code>&quot;./docs&quot;</code></p></span>
+                  </li>
+                  <li class='argument'>
+                    <span class='argument-name'>options.dest</span>
+                    <span class='argument-types'>(String): </span>
+                    <span class='argument-description'><p>the destination folder to write the docs to</p></span>
+                  </li>
+                  <li class='argument'>
+                    <span class='argument-name'>options.theme</span>
+                    <span class='argument-types'>(String): </span>
+                    <span class='argument-description'><p>a directory containing a theme to use instead of the default &quot;minimal&quot; theme.</p></span>
+                  </li>
+                  <li class='argument'>
+                    <span class='argument-name'>options.pkg</span>
+                    <span class='argument-types'>(String): </span>
+                    <span class='argument-description'><p>the root folder for the package being documented (defaults to <code>process.cwd()</code>)</p></span>
+                  </li>
+              </ul>
+              <h4>Returns</h4>
+              <div class='return'>
+                <span class='return-types'>(Promise)</span>
+                <span class='return-description'><p>Resolves to the output directory containing the built docs</p></span>
+              </div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

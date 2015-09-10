@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>docify</title>
+        <title>Getting Started with Docify | docify</title>
           <base href="/docify">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,12 +71,26 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
-
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
+          <h1 id="getting-started-with-docify">Getting started with Docify</h1>
+<p>Docify is a tool to quickly and easily add documentation to any Node module or npm based project.</p>
+<p>There are two types of documentation that Docify can generate: <strong>pages</strong> and <strong>API docs</strong>.</p>
+<h2 id="pages">Pages</h2>
+<p>Pages are written as Markdown or HTML files, stored in a top-level <code>docs/</code> folder in your project:</p>
+<pre><code>package<span class="hljs-class">.json</span>
+index<span class="hljs-class">.js</span>
+docs/
+  getting-started<span class="hljs-class">.md</span>
+  contributing.html
+</code></pre><p>Pages are great for guides, contributing guidelines, and other types of unstructured, long-form content.</p>
+<h2 id="api-docs">API Docs</h2>
+<p>API documentation is automatically generated from any top-level JS files, or files contained in <code>lib/</code>. Documentation is written as JSDoc style comments, and parsed via <a href="https://github.com/tj/dox">Dox</a>.</p>
+<pre><code class="lang-js"><span class="hljs-comment">/**
+ * A short description goes here.
+ *
+ * @param {Object}  options  a description of options
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">options</span>) </span>{}
+</code></pre>
 
         </div>
 

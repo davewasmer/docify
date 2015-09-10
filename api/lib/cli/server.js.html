@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>docify</title>
+        <title>$ docify server | docify</title>
           <base href="/docify">
-        <meta name="description" content="">
+        <meta name="description" content="Drop-in customizable project page, API documentation, and Github Pages support for your npm module.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -71,12 +71,25 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
+          <h1 class='file-name'>
+            $ docify server
+            <small class='file-path'>
+              Defined in
+              <a href='https://github.com/davewasmer/docify/blob/master/lib/cli/server.js'>lib/cli/server.js</a>
+            </small>
+          </h1>
 
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
+
+
+            <p class='method-description'><p>The <code>$ docify server</code> command builds the documentation for your project,
+then launches a preview webserver and watches your source files for any
+changes. When you change any source file (i.e. change a page in your
+<code>docs/</code> folder, or update a source code comment), the server will rebuild the
+documentation.</p><p>The server also incorporates a Livereload server, allow you to connect your
+browser and refresh the page when a change occurs. Check out the <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei">Livereload
+extension for Chrome</a>
+(or your own browser) for connecting.</p></p>
+
 
         </div>
 

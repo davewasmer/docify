@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>docify</title>
+        <title>Customizing Docify | docify</title>
           <base href="/docify">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,12 +71,42 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
-
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
+          <h1 id="customizing-docify">Customizing Docify</h1>
+<p>For small projects, the default <code>minimal</code> theme is a great fit. However, for larger projects, or ones that require more branding, you can customize the theme that Docify uses to generate the documentation.</p>
+<p>Docify themes are pretty simple. They only require three files:</p>
+<ul>
+<li><code>api.hbs</code> - used to render API documentation</li>
+<li><code>page.hbs</code> - used to render documentation Pages</li>
+<li><code>styles.scss</code> - your custom Sass stylesheet.</li>
+</ul>
+<p>You can also optionally include partials in a <code>partials/</code> directory inside your theme folder, and they will automatically be registered and made availabe in your templates.</p>
+<p>If you aren&#39;t familiar with Sass, don&#39;t worry - it&#39;s a strict superset of CSS, meaning you can write regular CSS in your <code>.scss</code> files and it should work just fine.</p>
+<h2 id="template-data">Template Data</h2>
+<p>The two templates used by Docify (<code>api.hbs</code> and <code>page.hbs</code>) each receive data that can be used inside the template.</p>
+<h3 id="-page-hbs-"><code>page.hbs</code></h3>
+<p>For the <code>page.hbs</code> template, this data is mostly useful for rendering things like global navigation, project links, etc; most of the content will come directly from the page source.</p>
+<p>Inside your page template, you access the following variables:</p>
+<pre><code class="lang-js">{
+  project: { <span class="hljs-comment">/* this is your package.json */</span> },
+  page: { <span class="hljs-comment">/* the YAML frontmatter for the currently rendering page */</span> },
+  pages: [
+    <span class="hljs-comment">// An array of all the pages in your project</span>
+  ],
+  apis: [
+    <span class="hljs-comment">// An array of the metadata and documentation extracted from each source file</span>
+  ]
+}
+</code></pre>
+<h3 id="-api-hbs-"><code>api.hbs</code></h3>
+<p>Unlike the page template, the API documentation template is almost entirely data driven. You&#39;ll have access to all the same global metadata that the page template has (i.e. <code>project</code>, <code>pages</code>, <code>apis</code>), but you&#39;ll also have access to the metadata for the currently rendering API documentation file via <code>api</code>.</p>
+<p>Docify uses <a href="https://github.com/tj/dox">Dox</a> to parse JSDoc style comment blocks in your source code. Each source file will produce an array of documentation data extract from each comment block. Docify combines these into an array of file metadata:</p>
+<pre><code class="lang-js">apis: [  <span class="hljs-comment">// apis is the array of all extracted documentation in your project</span>
+  [
+    <span class="hljs-comment">// Each entry is an array of extracted docs from each comment in a particular file</span>
+  ]
+]
+</code></pre>
+<p>See the documentation for <a href="https://github.com/tj/dox">Dox</a> to get a sense of what is available, or take a look at the source for the built-in <a href="https://github.com/davewasmer/docify/blob/master/themes/minimal/api.hbs">minimal theme</a>.</p>
 
         </div>
 

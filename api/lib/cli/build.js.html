@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>docify</title>
+        <title>$ docify build | docify</title>
           <base href="/docify">
-        <meta name="description" content="">
+        <meta name="description" content="Drop-in customizable project page, API documentation, and Github Pages support for your npm module.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
@@ -71,12 +71,25 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
+          <h1 class='file-name'>
+            $ docify build
+            <small class='file-path'>
+              Defined in
+              <a href='https://github.com/davewasmer/docify/blob/master/lib/cli/build.js'>lib/cli/build.js</a>
+            </small>
+          </h1>
 
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
+
+
+            <p class='method-description'><p>Run the follow command from your project&#39;s root directory:</p><pre><code class="lang-sh">$ docify build
+</code></pre>
+<p>to compile the docs for that project.</p><p>The <code>build</code> command takes several options to customize it&#39;s behavior:</p><pre><code class="lang-txt">--source       directory containing documentation source (defaults to ./docs)
+--destination  directory to write the generated docs to (defaults to ./docs-dist)
+--theme        directory containing a theme to use
+</code></pre>
+<p>If you are looking to use docify programmatically (i.e. from your code),
+check out the <a href="/api/build">main module (lib/build.js)</a></p></p>
+
 
         </div>
 
