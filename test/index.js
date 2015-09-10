@@ -16,8 +16,8 @@ describe('docify', function() {
       expectFileToExist('getting-started/index.html');
     });
     it('should build API doc files for each source file with docblock comments', function() {
-      expectFileToExist('api/lib/build/index.html');
-      expectFileToNotExist('api/lib/serve/index.html');
+      expectFileToExist('api/lib/build.js/index.html');
+      expectFileToNotExist('api/lib/server.js/index.html');
     });
   });
 });
