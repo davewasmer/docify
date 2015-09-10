@@ -2,23 +2,31 @@
 
 Drop-in customizable project page, API documentation, and Github Pages support for your npm module.
 
+Check out the [documentation website](http://davewasmer.github.io/docify) (generated with Docify and hosted on Github Pages!) for details on how to use Docify.
 
-## Install
+# Installation
+
+There are two ways to use Docify: globally via the CLI, or locally via the programmatic interface.
+
+## Installing the CLI globally
+
+Install Docify as a global CLI:
 
 ```sh
-$ npm install --save docify
+$ npm install -g docify
 ```
 
+You'll then have the `docify` command available. You can run `docify build` in your project to build the docs. Check out the [Getting Started guide](getting-started) for more details.
 
-## Usage
+## Installing the module locally
 
-Docify provides two things: basic static site generator, and integrated API docs. If you want to use the built-in theme, it's as easy as adding a `docs/` folder to your project:
+Install Docify into your project:
 
+```sh
+$ npm install --save-dev docify
 ```
-docs/
-  index.html   <-
-   ``
-```
+
+Check out the [module API docs](api/lib/build.js) for details on how to use Docify programmatically.
 
 ## License
 
