@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-require('babel/register');
 var Liftoff = require('liftoff');
 
 var Docify = new Liftoff({
   name: 'docify',
-  moduleName: 'docify/lib/cli'
+  moduleName: 'docify/dist/cli'
 });
 
 Docify.launch({
@@ -14,7 +13,7 @@ Docify.launch({
   if (!env.modulePath) {
     var pkg = require('../package');
     console.log('docify v' + pkg.version + ' [global]');
-    require('../lib/cli');
+    require('../dist/cli');
   } else {
     console.log('docify v' + env.modulePackage.version);
     require(env.modulePath);

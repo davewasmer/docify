@@ -1,3 +1,2 @@
 #!/usr/bin/env node
-require('babel/register');
-require('../lib/cli/publish');
+require('../dist/cli/publish');
