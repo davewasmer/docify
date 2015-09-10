@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Docify
-url: /getting-started
+url: getting-started
 ---
 
 # Getting started with Docify

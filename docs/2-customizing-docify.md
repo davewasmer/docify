@@ -1,6 +1,6 @@
 ---
 title: Customizing Docify
-url: /customizing-docify
+url: customizing-docify
 ---
 
 # Customizing Docify
