@@ -71,12 +71,18 @@
           </nav>
         </header>
         <div class='container'>
-          <div class='home'>
-  <img class='logo' src='/images/logo.png' alt='Docify logo'>
-
-  <h1 class='project-name'>Docify</h1>
-  <p class='project-description'>Drop-in customizable project page, API documentation, and Github Pages support for your npm module.</p>
-</div>
+          <h1 id="installation">Installation</h1>
+<p>There are two ways to use Docify: globally via the CLI, or locally via the programmatic interface.</p>
+<h2 id="installing-the-cli-globally">Installing the CLI globally</h2>
+<p>Install Docify as a global CLI:</p>
+<pre><code class="lang-sh">$ npm install -g docify
+</code></pre>
+<p>You&#39;ll then have the <code>docify</code> command available. You can run <code>docify build</code> in your project to build the docs. Check out the <a href="getting-started">Getting Started guide</a> for more details.</p>
+<h2 id="installing-the-module-locally">Installing the module locally</h2>
+<p>Install Docify into your project:</p>
+<pre><code class="lang-sh">$ npm install --save-dev docify
+</code></pre>
+<p>Check out the <a href="api/lib/build.js">module API docs</a> for details on how to use Docify programmatically.</p>
 
         </div>
 
