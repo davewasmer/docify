@@ -12,6 +12,9 @@
   "files": [
     "dist"
   ],
+  "bin": {
+    "docify": "bin/docify"
+  },
   "main": "dist/index.js",
   "keywords": [],
   "devDependencies": {
