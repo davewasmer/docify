@@ -1,6 +1,6 @@
 {
   "name": "docify",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Drop-in customizable project page, API documentation, and Github Pages support for your npm module.",
   "homepage": "https://github.com/davewasmer/docify",
   "repository": "davewasmer/docify",
