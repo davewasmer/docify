@@ -13,7 +13,7 @@
     "dist"
   ],
   "bin": {
-    "docify": "bin/docify"
+    "docify": "./bin/docify"
   },
   "main": "dist/index.js",
   "keywords": [],
