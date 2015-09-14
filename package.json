@@ -49,6 +49,7 @@
     "broccoli-stew": "^0.3.5",
     "commander": "^2.8.1",
     "copy-dereference": "^1.0.0",
+    "cpr": "^0.4.2",
     "dox": "^0.8.0",
     "fm": "^0.4.0",
     "front-matter": "^1.0.0",
